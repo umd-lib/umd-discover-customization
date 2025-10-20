@@ -7,7 +7,7 @@ This directory contains individual modules that customize various aspects of the
 The modules are organized into separate directories, each containing:
 
 - Module-specific code (JavaScript/CSS)
-- Documentation (readme.md)
+- Documentation (README.md)
 - Any additional resources
 
 All modules are integrated into the main `/umd-libraries/js/custom.js` and `/umd-libraries/css/custom1.css` files for deployment.
@@ -30,7 +30,7 @@ Implements the university-wide UMD header for Primo using shadow DOM technology.
 
 **Configuration**: Simplified to show only "Make a Gift" option to match UMD Libraries main website
 
-[View Documentation](umd-universal-header/readme.md)
+[View Documentation](umd-universal-header/README.md)
 
 ---
 
@@ -53,7 +53,7 @@ Provides an improved chat widget integration for LibChat service with real-time 
 - Set `serviceURL` to your LibChat status API endpoint
 - Set iframe `src` to your LibChat widget URL
 
-[View Documentation](libchat-chat-widget/readme.md)
+[View Documentation](libchat-chat-widget/README.md)
 
 ---
 
@@ -76,7 +76,7 @@ Adds custom UMD Discover branding to the search interface.
 - Replace logo SVG in CSS file
 - Use URL encoder for SVG optimization
 
-[View Documentation](search-branding-customization/readme.md)
+[View Documentation](search-branding-customization/README.md)
 
 ---
 
@@ -105,7 +105,7 @@ Adds external search options (like WorldCat) to the facet sidebar.
 - Monitors facet service results
 - Applies custom CSS positioning
 
-[View Documentation](external-search/readme.md)
+[View Documentation](external-search/README.md)
 
 ---
 
@@ -129,7 +129,7 @@ Enhances the experience when searches return no results with helpful guidance.
 - Branded template with helpful content
 - Accessibility-focused design
 
-[View Documentation](no-results-page/readme.md)
+[View Documentation](no-results-page/README.md)
 
 ---
 
@@ -159,7 +159,7 @@ Allows users to report problems with catalog items through an integrated survey.
 - Extracts metadata from DOM and URL
 - Uses `$timeout` for asynchronous title retrieval
 
-[View Documentation](item-page-report-issue/readme.md)
+[View Documentation](item-page-report-issue/README.md)
 
 ---
 
@@ -194,7 +194,7 @@ Provides a comprehensive view of all library loans across multiple institutions.
 4. Show detailed loan list by institution
 5. Color-coded due dates
 
-[View Documentation](loan-overview/readme.md)
+[View Documentation](loan-overview/README.md)
 
 ---
 
@@ -219,7 +219,7 @@ Automatically updates browser tab titles for better branding.
 - History API interception
 - MutationObserver for DOM changes
 
-[View Documentation](page-title-updater/readme.md)
+[View Documentation](page-title-updater/README.md)
 
 ---
 
@@ -234,7 +234,7 @@ Automatically updates browser tab titles for better branding.
    cd modules/your-module-name
    ```
 
-2. **Create readme.md**:
+2. **Create README.md**:
 
    - Module name and purpose
    - Key features
@@ -252,7 +252,7 @@ Automatically updates browser tab titles for better branding.
 4. **Integration**:
    - Add code to `/umd-libraries/js/custom.js`
    - Add styles to `/umd-libraries/css/custom1.css`
-   - Update this readme
+   - Update this README
    - Test in Primo environment
 
 ### Best Practices
@@ -297,7 +297,7 @@ Automatically updates browser tab titles for better branding.
 ### Development to Production
 
 1. **Develop** module in `modules/` directory
-2. **Document** in module-specific readme.md
+2. **Document** in module-specific README.md
 3. **Integrate** into main custom.js and custom1.css
 4. **Test** in development environment
 5. **Deploy** to production via Primo Back Office
@@ -310,9 +310,9 @@ Automatically updates browser tab titles for better branding.
 ```
 modules/
   module-name/
-    readme.md
+    README.md
     module.js
-    module.css # (only if needed)
+    module.css        # (only if needed)
 ```
 
 Module CSS should be limited to layout and structural styles so modules remain vanilla and reusable by other institutions. Place all UMD Discover–specific styling (branding, colors, typography, and site-specific overrides) in /umd-libraries/css/custom1.css.
@@ -329,12 +329,12 @@ Guidelines:
 ```
 umd-libraries/
   js/
-    custom.js # All modules combined
+    custom.js          # All modules combined
   css/
-    custom1.css # All styles combined
+    custom1.css        # All styles combined
 ```
 
-For deployment to Primo, see the "Installation" section in the repository README: [readme.md](readme.md)
+For deployment to Primo, see the "Installation" section in the repository README: [README.md](README.md)
 
 ## Common Patterns
 
@@ -434,7 +434,7 @@ app.controller("YourController", [
 
 For module-specific questions:
 
-- Check individual module readme files
+- Check individual module README files
 - Review code comments in custom.js
 - Contact UMD Libraries development team
 

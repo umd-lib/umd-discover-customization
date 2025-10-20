@@ -17,12 +17,12 @@ This project provides a comprehensive set of modules that customize various aspe
 
 ```
 repo/
-  umd-libraries/ # Main customization files
+  umd-libraries/            # Main customization files
     js/
-      custom.js # Main JavaScript file with all module integrations
+      custom.js             # Main JavaScript file with all module integrations
     css/
-      custom1.css # Main stylesheet for all customizations
-  modules/ # Individual feature modules (see modules/readme.md)
+      custom1.css.          # Main stylesheet for all customizations
+  modules/                  # Individual feature modules (see modules/readme.md)
     umd-universal-header/
     libchat-chat-widget/
     search-branding-customization/
@@ -31,7 +31,7 @@ repo/
     item-page-report-issue/
     loan-overview/
     page-title-updater/
-  readme.md # This file
+  readme.md                # This file
 ```
 
 ## Features
@@ -148,9 +148,9 @@ Structure of custom.js:
 ```
 01USMAI_UMCP-ui_test/
     js/
-        custom.js       # All modules combined
+        custom.js          # All modules combined
     css/
-        custom1.css     # All styles combined
+        custom1.css        # All styles combined
 ```
 
 - From the terminal, navigate to the parent directory that contains `01USMAI_UMCP-ui_test` and run:
