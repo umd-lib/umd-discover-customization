@@ -1813,11 +1813,17 @@ prm-citation-linker main div.padding-left-medium {
   font-style: normal;
   font-weight: 600;
   line-height: 33px;
+
+  margin-bottom: 1.5rem;
 }
 
 md-card.umd-card md-card-title,
 md-card.umd-card md-card-content {
   padding: 0;
+}
+
+md-card.umd-card md-card-content ul {
+  margin: 0;
 }
 
 /* database / journal search content */

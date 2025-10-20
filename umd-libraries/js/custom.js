@@ -13,7 +13,6 @@
   });
 
   app.component("umdUniversalHeader", {
-    // fixed stray quote in id attribute
     template: `
       <div id="umd-universal-header"></div>`,
     bindings: { parentCtrl: "<" },
@@ -812,7 +811,7 @@
         </div>
       </button>
       <div class="cw--iframe" id="cw--iframe">
-        <iframe src="https://umd.libanswers.com/chat/widget/5cffd49b55d69387be9a6fa51e3c5fa59efa09ca025ffc7367db9b7d083f17ec?referer=https%3A%2F%2Fusmai-umcp.primo.exlibrisgroup.com%2Fdiscovery%2Fsearch%3Fquery%3Dany%2Ccontains%2Cfire%26tab%3DEverything%26search_scope%3DDN_and_CI%26vid%3D01USMAI_UMCP%3Aui_test%26lang%3Den" frameborder="0" id="cw-iframe-window"></iframe>
+        <iframe src="https://umd.libanswers.com/chat/widget/5cffd49b55d69387be9a6fa51e3c5fa59efa09ca025ffc7367db9b7d083f17ec" frameborder="0" id="cw-iframe-window"></iframe>
       </div>
     </div>
     `,
@@ -829,18 +828,36 @@
 
       // reload the iframe to show correct chatbox page
       function reloadIframe() {
-        const iframe = document.getElementById("cw-iframe-window");
+        // addRefererToIframe will update iframe.src when necessary
         addRefererToIframe();
-        iframe.src = iframe.src; // Explicitly reassign the src to reload the iframe
-        console.log("iframe reloaded");
+        // no need to reassign iframe.src = iframe.src;
       }
 
       // add referer to the chat widget iframe
       function addRefererToIframe() {
         const iframe = document.getElementById("cw-iframe-window");
-        const referer = window.location.href; // Get the current page URL
+        if (!iframe) return;
+        const referer = window.location.href;
 
-        iframe.src = iframe.src + "?referer=" + encodeURIComponent(referer);
+        try {
+          const url = new URL(iframe.src, window.location.href);
+          // Only update if the referer param differs
+          if (url.searchParams.get("referer") !== referer) {
+            url.searchParams.set("referer", referer);
+            iframe.src = url.toString();
+            console.log("iframe src updated with referer");
+          }
+        } catch (e) {
+          // Fallback for older environments: only append if referer not present
+          if (!/[?&]referer=/.test(iframe.src)) {
+            iframe.src =
+              iframe.src +
+              (iframe.src.indexOf("?") === -1 ? "?" : "&") +
+              "referer=" +
+              encodeURIComponent(referer);
+            console.log("iframe src updated (fallback) with referer");
+          }
+        }
       }
 
       // update the chat widget UI
@@ -851,11 +868,9 @@
         if (status === true) {
           widgetStatus.innerText = "live";
           widget.classList.remove("offline");
-          // console.log("chat widget is live");
         } else {
           widgetStatus.innerText = "offline";
           widget.classList.add("offline");
-          // console.log("chat widget is offline");
 
           // reload the iframe to show correct chat widget page, only reload if the chat widget is offline to prevent disconnecting the user during a chat session
           reloadIframe();
@@ -868,23 +883,17 @@
           //   check the server status and get the service status
           .then((response) => {
             if (response.status === 200) {
-              // console.log("server is live");
-              // console.log(response);
               let data = response.json();
-              // console.log(data);
               return data;
             } else {
-              // console.log("server is down");
             }
           })
           // update the chat widget based on the service status
           .then((data) => {
             const awayValue = data.away;
             if (typeof awayValue !== "undefined") {
-              // console.log("chat widget is live");
               updateChatWidgetStatus(true);
             } else {
-              // console.log("chat widget is offline");
               updateChatWidgetStatus(false);
             }
           })
