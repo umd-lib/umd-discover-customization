@@ -171,7 +171,7 @@ You will get a ZIP file after this command completes.
 
 Each module is developed independently in the `modules/` directory with its own readme and documentation. The main `custom.js` file integrates all modules into a single deployment file.
 
-For detailed information about individual modules, see [modules/readme.md](modules/readme.md).
+For detailed information about individual modules, see [modules/readme.md](modules/README.md).
 
 ### Making Changes
 
