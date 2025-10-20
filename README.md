@@ -2,6 +2,8 @@
 
 This repository contains customization code for the University of Maryland Libraries' Primo discovery interface (UMD Discover). The customizations enhance the user experience with additional features, branding, and integrations specific to UMD Libraries.
 
+To see these features in the production environment, visit [UMD Discover](https://usmai-umcp.primo.exlibrisgroup.com/discovery/search?vid=01USMAI_UMCP%3AUMCP&query=).
+
 ## Overview
 
 This project provides a comprehensive set of modules that customize various aspects of the Primo interface, including:
